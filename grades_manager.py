@@ -8,17 +8,17 @@ def add_student(student_grades=None):
     name = input("Enter student name:\n").strip().title()
 
     subjects = {}
-    input= input ("Enter subject and grade (or 'exit' to finish):\n").strip()
-    while input.lower()!= "exit":
+    user_input= input ("Enter subject and grade (or 'exit' to finish):\n").strip()
+    while user_input.lower()!= "exit":
 
-        if "," in input:
+        if "," in user_input:
 
-            subject, grade= input.split(",")
+            subject, grade= user_input.split(",", 1)
             subject = subject.strip().title()
             grade=float(grade.strip())
             subjects[subject]=grade
         
-        input= input ("Enter subject and grade (or 'exit' to finish):\n").strip()
+        user_input= input ("Enter subject and grade (or 'exit' to finish):\n").strip()
     
     student_grades[name]= subjects
 
@@ -39,14 +39,20 @@ def get_students(student_grades, keys):
             print(f"{name_title} not found!")
 
     return result
+    def avg_by_student(student_grades, keys=None):
 
-def avg_by_student(student_grades, keys=None):
+        if keys is None:
+            selected = student_grades
+        else:
+            selected = get_students(student_grades, keys)
 
-    if keys is None:
-        selected= student_grades
-    else:
-        selected= get_students(student_grades, keys)
+        result = {}
 
     for student, grades in selected.items():
-        avg = sum(grades.values())/len(grades)
-        print(f"{student}: {avg:.1f}")
+        if len(grades) == 0:
+            result[student] = 0
+        else:
+            avg = sum(grades.values()) / len(grades)
+            result[student] = round(avg, 1)
+
+    return result
