@@ -1,45 +1,48 @@
 def initialize_dict(student_name, subject_grades):
     return {student_name: subject_grades}
 
-def add_student(student_grades={}):
+def add_student(student_grades=None):
     student_name = input("Enter student name:\n").title()
-    materias = {}
+    subjects = {}
 
     while True:
-        eleccion = input('Enter subject and grade (or "exit" to finish):\n').lower()
-        if eleccion == "exit":
+        election = input('Enter subject and grade (or "exit" to finish):\n').lower()
+        if election == "exit":
             break
 
-        materia_nota = eleccion.find(",")
-        materia = eleccion[:materia_nota].title()
-        nota = float(eleccion[materia_nota + 1:])
-        materias[materia] = nota
+        if "," not in election:
+            print("Invalid format. Use: subject,grade")
+            continue
+        subject_grade = election.find(",")
+        subject = election[:subject_grade].title()
+        grade = float(election[subject_grade + 1:])
+        subjects[subject] = grade
 
-    student_grades[student_name] = materias
+    student_grades[student_name] = subjects
     print(f"Student {student_name} successfully added.")
     return student_grades
 
 def get_students(student_grades, keys):
-    resultado = {}
-    for estudiante in keys:
+    result = {}
+    for student in keys:
         found = False
-        for student in student_grades:
-            if student.lower() == estudiante.lower():
-                resultado[student] = student_grades[student]
+        for student_name in student_grades:
+            if student_name.lower() == student.lower():
+                result[student_name] = student_grades[student_name]
                 found = True
                 break
         if not found:
-            print(f"{estudiante.title()} not found!")
-    return resultado
+            print(f"{student.title()} not found!")
+    return result
 
 def avg_by_student(student_grades, keys=None):
     if keys is None:
-        datos = student_grades
+        data = student_grades
     else:
-        datos = get_students(student_grades, keys)
+        data = get_students(student_grades, keys)
 
-    for estudiante in datos:
-        notas = datos[estudiante].values()
-        promedio = sum(notas) / len(notas)
-        print(f"{estudiante}: {promedio:.1f}")
+    for student in data:
+        grades = data[student].values()
+        average = sum(grades) / len(grades)
+        print(f"{student}: {average:.1f}")
                                 
