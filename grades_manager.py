@@ -13,7 +13,7 @@ def add_student(student_grades=None):
 
         if "," in user_input:
 
-            subject, grade= user_input.split(",", 1)
+            subject, grade= user_input.split(",")
             subject = subject.strip().title()
             grade=float(grade.strip())
             subjects[subject]=grade
@@ -39,20 +39,14 @@ def get_students(student_grades, keys):
             print(f"{name_title} not found!")
 
     return result
-    def avg_by_student(student_grades, keys=None):
 
-        if keys is None:
-            selected = student_grades
-        else:
-            selected = get_students(student_grades, keys)
+def avg_by_student(student_grades, keys=None):
 
-        result = {}
+    if keys is None:
+        selected= student_grades
+    else:
+        selected= get_students(student_grades, keys)
 
     for student, grades in selected.items():
-        if len(grades) == 0:
-            result[student] = 0
-        else:
-            avg = sum(grades.values()) / len(grades)
-            result[student] = round(avg, 1)
-
-    return result
+        avg = sum(grades.values())/len(grades)
+        print(f"{student}: {avg:.1f}")
