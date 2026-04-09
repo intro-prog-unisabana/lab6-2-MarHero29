@@ -18,17 +18,14 @@ def assignment_averages(data):
     
     for student, grade in data.items():
         for assignment, score in grade.items():
+            
             if assignment not in totals:
                 totals[assignment] = 0
                 counts[assignment] = 0
                 
-                totals[assignment] += score
-                counts[assignment] += 1
+            totals[assignment] += score
+            counts[assignment] += 1
     result = {}
-    for assignment, total in totals.items():
-        count = counts[assignment]
-        if count > 0:
-            result[assignment] = round(total / count)
-        else:
-            result[assignment] = 0
+    for assignment, total in totals:
+        result[assignment] = round(total[assignment]/ counts[assignment])
     return result
