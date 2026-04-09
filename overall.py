@@ -1,34 +1,34 @@
-def student_averages(datos):
-    resultado = {}
+def student_averages(data):
+    result = {}
     
-    for student, grades in datos.items():
-        if len(notas)==0:
-            resultado[student] = 0
+    for student, grades in data.items():
+        if len(grades) == 0:
+            result[student] = 0
         else:
-            total = sum(notas.values())
-            count = len(notas)
+            total = sum(grades.values())
+            count = len(grades)
             average = round(total / count)
-            resultado[student] = average
+            result[student] = average
             
-    return resultado
+    return result
 
-def assignment_averages(datos):
-    totales = {}
+def assignment_averages(data):
+    totals = {}
     counts = {}
     
-    for student, notas in datos.items():
-        for assignment, score in notas.items():
-            if assignment not in totales:
-                totales[assignment] = 0
+    for student, grade in data.items():
+        for assignment, score in grade.items():
+            if assignment not in totals:
+                totals[assignment] = 0
                 counts[assignment] = 0
                 
-                totales[assignment] += score
+                totals[assignment] += score
                 counts[assignment] += 1
-    resultado = {}
-    for assignment, total in totales.items():
+    result = {}
+    for assignment, total in totals.items():
         count = counts[assignment]
         if count > 0:
-            resultado[assignment] = round(total / count)
+            result[assignment] = round(total / count)
         else:
-            resultado[assignment] = 0
-    return resultado
+            result[assignment] = 0
+    return result
