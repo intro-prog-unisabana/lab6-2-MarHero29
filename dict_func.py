@@ -12,7 +12,7 @@ def employee_print(employee_info):
     other_info.pop("Salary", None)
     other_info.pop("Role", None)
 
-    if not other_info:
+    if len(other_info) == 0:
         print("No other info!")
     else:
         for key, value in other_info.items():

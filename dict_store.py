@@ -1,4 +1,8 @@
-def temp_and_color(get_values):
-    temp = get_values("temp")
-    color = get_values("color")
-    return temp, color
+datos = {"temp": 22.5, "color": "blue", "status": "ok"}
+def temp_and_color(datos):
+    temp=datos.get("temp")
+    color=datos.get("color")
+    return (temp,color)
+print(temp_and_color(datos))
+datos = {"status": "ok"}
+print(temp_and_color(datos))

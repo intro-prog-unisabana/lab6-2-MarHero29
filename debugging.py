@@ -21,7 +21,7 @@ def update_stock(inventory):
     if fruit in inventory:
         amount = input(f"Enter amount to add to {fruit}'s stock: ")
         # ¿Es esta operación válida?
-        inventory[fruit] += (amount)
+        inventory[fruit] += int(amount)
         print(f"{fruit} stock increased by {amount}.\n")
     else:
         print(f"{fruit} is not in inventory. Use option 2 to add it.\n")
@@ -59,7 +59,6 @@ def run_program():
             break
         else:
             print("Invalid option. Please choose 1, 2, 3, or 4.\n")
-  
 if __name__ == "__main__":
     run_program()
     # FREEZE CODE END

@@ -3,14 +3,14 @@ Lab 6
 /****************************************************************************
 * Número aproximado de horas para completar esta tarea
 ******************************************************************************/
-Número de horas:
+Número de horas:10
 
 
 /****************************************************************************
 * ¿Encontraste algún problema serio? Si es así, por favor descríbelo.
 ******************************************************************************/
 
-¿Sí o no?
+¿Sí o no? Si, Me parecio bastante complejo y no cuento con internet en mi hogar por lo que me toco recurrir a otros recursos.
 
 
 /****************************************************************************
@@ -23,7 +23,7 @@ Número de horas:
  *  Proporciona el enlace de tu perfil de GitHub (ej. https://github.com/afbeltranp)
  ******************************************************************************/
 
-[escribe el enlace aquí]
+https://github.com/MarHero29
 
 /****************************************************************************
  *  Escribe y firma el siguiente reconocimiento estudiantil de trabajo original.
@@ -34,4 +34,4 @@ Número de horas:
  *      con las regulaciones de la Universidad.  /s/ Ada Lovelace
  ******************************************************************************/
 
-[escribe y firma la declaración aquí]
+/s/ Mariana Hernandez Rodriguez
