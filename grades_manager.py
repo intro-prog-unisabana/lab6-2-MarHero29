@@ -42,8 +42,8 @@ def avg_by_student(student_grades, keys=None):
         data = student_grades
     else:
         data = get_students(student_grades, keys)
-        
-        result = {}
+
+    result = {}
 
     for student in data:
         grades = data[student].values()
