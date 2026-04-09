@@ -26,6 +26,6 @@ def assignment_averages(data):
             totals[assignment] += score
             counts[assignment] += 1
     result = {}
-    for assignment, total in totals:
-        result[assignment] = round(total[assignment]/ counts[assignment])
+    for assignment, total in totals.items():
+        result[assignment] = round(total / counts[assignment])
     return result
