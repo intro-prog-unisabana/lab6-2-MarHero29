@@ -43,8 +43,21 @@ def avg_by_student(student_grades, keys=None):
     else:
         data = get_students(student_grades, keys)
 
+    def avg_by_student(student_grades, keys=None):
+        if keys is None:
+            data = student_grades
+        else:
+            data = get_students(student_grades, keys)
+
+    result = {}
+
     for student in data:
         grades = data[student].values()
-        average = sum(grades) / len(grades)
-        print(f"{student}: {average:.1f}")
+        if len(grades) == 0:
+            result[student] = 0
+        else:
+            average = sum(grades) / len(grades)
+            result[student] = round(average, 1)
+
+    return result
                                 
