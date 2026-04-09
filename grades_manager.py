@@ -2,6 +2,8 @@ def initialize_dict(student_name, subject_grades):
     return {student_name: subject_grades}
 
 def add_student(student_grades=None):
+    if student_grades is None:
+        student_grades = {}
     student_name = input("Enter student name:\n").title()
     subjects = {}
 
